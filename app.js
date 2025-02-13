@@ -2,13 +2,13 @@ const express = require("express");
 const connectDB = require("./config/db.js");
 require("dotenv").config();
 const cors = require("cors");
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 connectDB();
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/post", require("./routes/post.routes.js"));
