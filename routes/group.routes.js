@@ -4,6 +4,7 @@ const {
   createGroup,
   getAllGroups,
   deleteGroup,
+  invitationToGroup,
 } = require("../controllers/createGroup.controler.js");
 const { auth } = require("../middleware/auth.js");
 
@@ -11,4 +12,5 @@ const { auth } = require("../middleware/auth.js");
 router.post("/", auth, createGroup);
 router.get("/", auth, getAllGroups);
 router.delete("/", auth, deleteGroup);
+router.patch("/", auth, invitationToGroup);
 module.exports = router;

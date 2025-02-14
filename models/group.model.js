@@ -17,8 +17,12 @@ const groupSchema = new mongoose.Schema(
     },
     members: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
+        _id: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "user",
+        },
+        username: String,
+        status: String,
       },
     ],
     invitations: [
