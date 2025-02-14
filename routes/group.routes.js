@@ -1,9 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const groupController = require("../controllers/createGroup.controler.js");
-const auth = require("../middleware/auth");
+const {
+  createGroup,
+  getAllGroups,
+  deleteGroup,
+} = require("../controllers/createGroup.controler.js");
+const { auth } = require("../middleware/auth.js");
 
 // ✅ Route pour créer un groupe
-router.post("/", auth, groupController.createGroup);
-
+router.post("/", auth, createGroup);
+router.get("/", auth, getAllGroups);
+router.delete("/", auth, deleteGroup);
 module.exports = router;
